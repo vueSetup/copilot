@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+**/node_modules/
+**/out/
+**/.vs/
+**/dist/
+npm-debug.log
+tsconfig.lsif.json
+*.lsif
+*.db
+*.tsbuildinfo
+
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
