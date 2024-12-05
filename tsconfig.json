@@ -1,0 +1,7 @@
+{
+  "references": [
+    { "path": "./extensions/vscode/tsconfig.json" },
+    { "path": "./packages/compiler/tsconfig.json" },
+    { "path": "./packages/webview-ui/tsconfig.json" }
+  ]
+}

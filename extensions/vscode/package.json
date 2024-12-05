@@ -1,0 +1,119 @@
+{
+  "name": "copilot",
+  "version": "0.0.1",
+  "displayName": "Copilot",
+  "description": "",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "signin",
+          "title": "Copilot",
+          "icon": "assets/icon.svg"
+        },
+        {
+          "id": "routes",
+          "title": "Copilot",
+          "icon": "assets/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "signin": [
+        {
+          "type": "webview",
+          "id": "copilot.signin",
+          "name": "SignIn",
+          "when": "!isLoggedIn"
+        }
+      ],
+      "routes": [
+        {
+          "id": "copilot.routes",
+          "name": "Routes",
+          "contextualTitle": "Explorer",
+          "when": "isLoggedIn"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "copilot.command.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "copilot.command.signin",
+        "title": "%copilot.command.signin.title%",
+        "icon": "$(sign-in)"
+      },
+      {
+        "command": "copilot.command.signout",
+        "title": "%copilot.command.signout.title%",
+        "icon": "$(sign-out)"
+      },
+      {
+        "command": "copilot.command.showEditor",
+        "title": "%copilot.showEditor.title%",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "copilot.command.showSource",
+        "title": "%copilot.showSource.title%",
+        "icon": "$(go-to-file)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "copilot.command.signin",
+          "group": "navigation",
+          "when": "view == copilot.signin"
+        },
+        {
+          "command": "copilot.command.signout",
+          "group": "navigation",
+          "when": "view == copilot.routes"
+        }
+      ],
+      "editor/title": []
+    },
+    "customEditors": [
+      {
+        "viewType": "copilot.editor",
+        "displayName": "Vue's Single-File Component(SFC) Editor",
+        "priority": "option",
+        "selector": [
+          {
+            "filenamePattern": "*.vue"
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.10.1",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "@vscode/vsce": "^3.2.1",
+    "@vue/reactivity": "^3.5.13",
+    "eslint": "^9.16.0",
+    "reactive-vscode": "^0.2.9"
+  }
+}

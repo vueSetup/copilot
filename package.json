@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.15.3",
+  "type": "module",
+  "scripts": {
+    "commit": "git-cz"
+  },
+  "engines": {
+    "node": "^18.0.0 || ^20.0.0 || >=22.0.0"
+  },
+  "devDependencies": {
+    "commitizen": "^4.3.1",
+    "typescript": "^5.7.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
